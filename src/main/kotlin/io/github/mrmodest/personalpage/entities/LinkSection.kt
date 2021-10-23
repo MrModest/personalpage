@@ -1,6 +1,6 @@
 package io.github.mrmodest.personalpage.entities
 
-class CardSection(
+class LinkSection(
     override val id: Long,
     val title: String,
     val description: String,
@@ -9,5 +9,5 @@ class CardSection(
 
     override val userId: Long,
 
-    override val isArchived: Boolean
+    override var isArchived: Boolean
 ) : HasId, Localizable, Ownerable, Archivable

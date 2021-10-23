@@ -5,7 +5,11 @@ import io.github.mrmodest.personalpage.dtos.LinkCardEditDto
 import io.github.mrmodest.personalpage.entities.LinkCard
 
 interface LinkCardRepository {
+    fun find(cardId: Long): LinkCard
+    fun findByUser(userId: Long): List<LinkCard>
+
     fun add(card: LinkCardAddDto): LinkCard
     fun edit(card: LinkCardEditDto): LinkCard
-    fun remove(cardId: Long)
+    fun archive(cardId: Long): LinkCard
+    fun unarchive(cardId: Long): LinkCard
 }

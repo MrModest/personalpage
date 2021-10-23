@@ -8,10 +8,11 @@ class LinkCard(
     val note: String,
     val description: String,
     val url: String,
+    val sectionId: Long,
 
     override val locale: Locale,
 
     override val userId: Long,
 
-    override val isArchived: Boolean
+    override var isArchived: Boolean
 ) : HasId, Localizable, Ownerable, Archivable

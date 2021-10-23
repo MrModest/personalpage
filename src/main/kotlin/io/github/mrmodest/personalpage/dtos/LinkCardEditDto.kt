@@ -11,14 +11,19 @@ class LinkCardEditDto(
     val note: String,
     val description: String,
     val url: String,
+    val sectionId: Long,
     val locale: Locale
 ) {
     fun validate() {
         if (id <= 0) {
-            throw IllegalArgumentException("LinkCardEditDto.id: expect positive, but got $id!")
+            throw IllegalArgumentException("LinkCardEditDto.id: id is required! [$id]")
+        }
+
+        if (sectionId <= 0) {
+            throw IllegalArgumentException("LinkCardEditDto.sectionId: sectionId is required! [$sectionId]")
         }
     }
 }
 
 fun LinkCardEditDto.toEntity(userId: Long, isArchived: Boolean) =
-    LinkCard(id, logoUrl, cardName, title, note, description, url, locale, userId, isArchived)
+    LinkCard(id, logoUrl, cardName, title, note, description, url, sectionId, locale, userId, isArchived)

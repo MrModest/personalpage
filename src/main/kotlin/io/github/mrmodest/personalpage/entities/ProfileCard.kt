@@ -16,5 +16,5 @@ class ProfileCard @PersistenceConstructor constructor(
 
     override val userId: Long,
 
-    override val isArchived: Boolean
+    override var isArchived: Boolean
 ) : HasId, Localizable, Ownerable, Archivable
